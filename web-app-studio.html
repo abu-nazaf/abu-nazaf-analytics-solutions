@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abu-Nazaf Digital Studio | Web & App Design + Development</title>
+<meta name="description" content="Premium website, web application, mobile app UI/UX and development solutions by Abu-Nazaf Digital Studio.">
+<meta name="theme-color" content="#06101c">
+<style>
+:root{--bg:#050b14;--panel:rgba(11,22,36,.78);--line:rgba(126,190,255,.16);--text:#edf7ff;--muted:#91a9bd;--cyan:#46e5ff;--blue:#5c8dff;--violet:#9b6cff;--green:#65e6b4;--shadow:0 28px 80px rgba(0,0,0,.38);--radius:26px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 12% 8%,rgba(70,229,255,.13),transparent 27%),radial-gradient(circle at 88% 14%,rgba(155,108,255,.14),transparent 28%),linear-gradient(135deg,#040913,#071321 52%,#050b14);color:var(--text);line-height:1.6;overflow-x:hidden}
+a{text-decoration:none;color:inherit}.wrap{width:min(1160px,calc(100% - 36px));margin:auto}
+.grid-bg{position:fixed;inset:0;pointer-events:none;opacity:.18;background-image:linear-gradient(rgba(120,180,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(120,180,255,.05) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(to bottom,black,transparent 85%);z-index:-1}
+.noise{position:fixed;inset:0;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");z-index:20}
+header{position:fixed;top:0;left:0;right:0;z-index:10;padding:14px 0}.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 16px;border:1px solid var(--line);border-radius:20px;background:rgba(5,12,22,.68);backdrop-filter:blur(18px);box-shadow:var(--shadow)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.08em;font-size:.78rem}.brand-mark{width:35px;height:35px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#03101b;box-shadow:0 0 30px rgba(70,229,255,.25)}
+.navlinks{display:flex;gap:8px;align-items:center}.navlinks a{color:#b9cbd9;font-size:.82rem;padding:9px 12px;border-radius:11px;transition:.25s}.navlinks a:hover{color:white;background:rgba(255,255,255,.06)}
+.cta{padding:10px 15px;border-radius:12px;background:linear-gradient(135deg,var(--cyan),#77a7ff);color:#04111d!important;font-weight:900!important;box-shadow:0 8px 28px rgba(70,229,255,.18)}
+.hero{min-height:100vh;display:grid;place-items:center;padding:150px 0 90px;position:relative}.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:54px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 11px;border:1px solid rgba(70,229,255,.22);background:rgba(70,229,255,.06);border-radius:999px;color:#bcefff;font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 16px var(--green);animation:pulse 1.7s infinite}
+h1{font-size:clamp(3rem,6vw,6.3rem);line-height:.93;letter-spacing:-.06em;margin:24px 0}.grad{background:linear-gradient(100deg,#fff 0%,#bcefff 36%,#7ea6ff 68%,#b890ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:690px;color:var(--muted);font-size:1.08rem}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 17px;border-radius:14px;border:1px solid var(--line);font-weight:850;font-size:.86rem;transition:.3s}.btn.primary{background:linear-gradient(135deg,var(--cyan),#759bff);color:#03101b;border-color:transparent;box-shadow:0 16px 40px rgba(70,229,255,.18)}.btn.ghost{background:rgba(255,255,255,.035);color:#dcecf7}.btn:hover{transform:translateY(-3px);box-shadow:0 15px 36px rgba(0,0,0,.25)}
+.device-stage{position:relative;min-height:510px;display:grid;place-items:center;perspective:1000px}.orb{position:absolute;width:330px;height:330px;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(70,229,255,.45),rgba(92,141,255,.12) 40%,transparent 70%);filter:blur(2px);animation:float 5s ease-in-out infinite}
+.laptop{width:min(480px,100%);position:relative;z-index:2;transform:rotateY(-9deg) rotateX(4deg);animation:float 5s ease-in-out infinite}.screen{height:285px;border:9px solid #1a2a3b;border-bottom-width:16px;border-radius:18px 18px 10px 10px;background:#071321;box-shadow:0 30px 80px rgba(0,0,0,.45),0 0 60px rgba(70,229,255,.12);padding:18px;overflow:hidden}.screen-top{display:flex;justify-content:space-between;align-items:center;color:#9eb5c8;font-size:.7rem;margin-bottom:18px}.window-dots{display:flex;gap:5px}.window-dots i{width:7px;height:7px;border-radius:50%;background:#334b60}.dashboard{display:grid;grid-template-columns:1.5fr .8fr;gap:10px;height:210px}.chart{border:1px solid var(--line);border-radius:12px;background:linear-gradient(180deg,rgba(70,229,255,.08),rgba(255,255,255,.015));position:relative;overflow:hidden}.chart:after{content:"";position:absolute;left:7%;right:7%;bottom:25%;height:55%;border-bottom:2px solid var(--cyan);border-radius:50%;transform:skewY(-12deg);box-shadow:0 0 22px rgba(70,229,255,.35)}.stats{display:grid;gap:10px}.stat{border:1px solid var(--line);border-radius:12px;padding:12px;background:rgba(255,255,255,.025)}.stat b{display:block;font-size:1.25rem}.stat span{font-size:.65rem;color:#7890a4}.base{height:24px;width:88%;margin:auto;border-radius:0 0 25px 25px;background:linear-gradient(#2a3d51,#101b28);box-shadow:0 20px 25px rgba(0,0,0,.35)}
+.phone{position:absolute;right:0;bottom:25px;width:145px;height:285px;border:7px solid #1a2a3b;border-radius:28px;background:#06111e;z-index:3;padding:11px;box-shadow:0 28px 60px rgba(0,0,0,.45);animation:float2 4.5s ease-in-out infinite}.phone-notch{width:42px;height:9px;background:#17283a;border-radius:99px;margin:0 auto 14px}.phone-ui{display:grid;gap:9px}.phone-card{height:56px;border:1px solid var(--line);border-radius:11px;background:linear-gradient(135deg,rgba(70,229,255,.12),rgba(155,108,255,.08))}.floating-tag{position:absolute;left:5px;top:60px;z-index:4;padding:10px 12px;border:1px solid var(--line);background:rgba(5,12,22,.78);backdrop-filter:blur(14px);border-radius:13px;font-size:.7rem;color:#c9e7f6;animation:float2 4s ease-in-out infinite}
+section{padding:100px 0}.section-head{max-width:760px;margin-bottom:38px}.kicker{color:var(--cyan);font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.14em}.section-head h2{font-size:clamp(2rem,4vw,3.6rem);line-height:1;letter-spacing:-.045em;margin:10px 0 15px}.section-head p{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.card{border:1px solid var(--line);background:linear-gradient(145deg,rgba(13,29,46,.72),rgba(7,16,28,.72));border-radius:var(--radius);padding:25px;position:relative;overflow:hidden;transition:.35s}.card:before{content:"";position:absolute;inset:-80px;background:radial-gradient(circle at var(--mx,50%) var(--my,0%),rgba(70,229,255,.11),transparent 24%);opacity:0;transition:.35s}.card:hover{transform:translateY(-8px);border-color:rgba(70,229,255,.35);box-shadow:0 25px 60px rgba(0,0,0,.26)}.card:hover:before{opacity:1}.icon{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:rgba(70,229,255,.08);border:1px solid rgba(70,229,255,.18);color:var(--cyan);font-weight:900;font-size:1.2rem;margin-bottom:18px}.card h3{font-size:1.12rem;margin-bottom:9px}.card p{color:var(--muted);font-size:.88rem}.card ul{list-style:none;margin-top:17px;display:grid;gap:8px;color:#c4d6e2;font-size:.78rem}.card li:before{content:"✓";color:var(--green);font-weight:900;margin-right:8px}
+.work{display:grid;grid-template-columns:1fr 1fr;gap:16px}.project{min-height:290px;padding:30px;border-radius:28px;border:1px solid var(--line);position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(20,37,58,.8),rgba(6,14,25,.8))}.project .glow{position:absolute;width:260px;height:260px;border-radius:50%;right:-90px;top:-90px;background:radial-gradient(circle,rgba(70,229,255,.28),transparent 65%);filter:blur(6px)}.project:nth-child(2) .glow{background:radial-gradient(circle,rgba(155,108,255,.3),transparent 65%)}.project span{font-size:.7rem;color:#8fa9bd;text-transform:uppercase;letter-spacing:.12em}.project h3{font-size:1.8rem;max-width:430px;line-height:1.05;margin:13px 0}.project p{color:var(--muted);max-width:510px}.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:22px}.chip{font-size:.68rem;padding:6px 9px;border:1px solid var(--line);border-radius:999px;color:#b9cfde;background:rgba(255,255,255,.025)}
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.step{padding:22px;border-top:1px solid var(--line);position:relative}.num{font-size:.7rem;color:var(--cyan);font-weight:900;letter-spacing:.12em}.step h3{margin:10px 0 7px}.step p{font-size:.82rem;color:var(--muted)}
+.contact{display:grid;grid-template-columns:1fr .9fr;gap:18px;align-items:stretch}.contact-box{padding:34px;border-radius:30px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(13,29,46,.75),rgba(6,14,25,.78))}.contact-box h2{font-size:clamp(2rem,4vw,3.7rem);line-height:.98;letter-spacing:-.05em}.contact-box p{color:var(--muted);margin:16px 0}.contact-list{display:grid;gap:11px;margin-top:24px}.contact-list div{padding:13px;border:1px solid var(--line);border-radius:13px;color:#c4d8e6;font-size:.8rem;background:rgba(255,255,255,.02)}
+footer{padding:30px 0 45px;color:#70889a;font-size:.72rem;border-top:1px solid rgba(126,190,255,.08)}.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s ease}.reveal.show{opacity:1;transform:none}.cursor{position:fixed;width:270px;height:270px;border-radius:50%;background:radial-gradient(circle,rgba(70,229,255,.09),transparent 65%);pointer-events:none;transform:translate(-50%,-50%);z-index:0;mix-blend-mode:screen}
+@keyframes float{50%{transform:translateY(-12px) rotateY(-9deg) rotateX(4deg)}}@keyframes float2{50%{transform:translateY(-13px)}}@keyframes pulse{50%{opacity:.35;transform:scale(.8)}}
+@media(max-width:900px){.hero-grid,.contact{grid-template-columns:1fr}.device-stage{min-height:430px}.cards{grid-template-columns:1fr 1fr}.process{grid-template-columns:1fr 1fr}.work{grid-template-columns:1fr}}
+@media(max-width:620px){.wrap{width:min(100% - 24px,1160px)}.navlinks{display:none}.hero{padding-top:120px}.hero-grid{gap:25px}.device-stage{min-height:350px}.screen{height:220px}.dashboard{height:160px}.phone{width:112px;height:220px;right:-3px}.floating-tag{top:20px}.cards,.process{grid-template-columns:1fr}.project{min-height:260px}section{padding:72px 0}}
+
+/* ===== CREDENTIAL / CERTIFICATE SPOTLIGHT ===== */
+.credential-section{padding:18px 0 100px}
+.credential-card{position:relative;overflow:hidden;display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:stretch;padding:28px;border:1px solid rgba(70,229,255,.20);border-radius:30px;background:linear-gradient(145deg,rgba(13,31,50,.88),rgba(6,14,25,.92));box-shadow:0 24px 70px rgba(0,0,0,.30)}
+.credential-card:before{content:"";position:absolute;width:300px;height:300px;right:-100px;top:-150px;border-radius:50%;background:radial-gradient(circle,rgba(70,229,255,.18),transparent 68%);filter:blur(4px);pointer-events:none}
+.credential-copy,.credential-seal{position:relative;z-index:1}
+.credential-kicker{display:inline-flex;align-items:center;gap:8px;color:var(--cyan);font-size:.68rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+.credential-kicker i{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 14px var(--green)}
+.credential-copy h2{font-size:clamp(1.8rem,3.8vw,3rem);line-height:1.02;letter-spacing:-.045em;margin:10px 0 12px}
+.credential-copy p{color:var(--muted);max-width:680px;font-size:.9rem}
+.credential-id{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.72rem;color:#cfe9f6}
+.credential-id strong{color:#fff;font-weight:800;overflow-wrap:anywhere}
+.copy-cert{border:1px solid rgba(70,229,255,.18);background:rgba(70,229,255,.06);color:var(--cyan);border-radius:10px;padding:7px 10px;font-size:.68rem;font-weight:900;cursor:pointer;transition:.25s}
+.copy-cert:hover{transform:translateY(-2px);background:rgba(70,229,255,.11);box-shadow:0 10px 24px rgba(0,0,0,.18)}
+.credential-seal{display:grid;place-items:center;min-height:190px;border:1px solid rgba(126,190,255,.16);border-radius:24px;background:radial-gradient(circle at 50% 40%,rgba(70,229,255,.11),transparent 52%),rgba(255,255,255,.02)}
+.seal-core{width:132px;height:132px;border-radius:50%;display:grid;place-items:center;text-align:center;border:1px solid rgba(70,229,255,.45);box-shadow:0 0 0 8px rgba(70,229,255,.035),0 0 42px rgba(70,229,255,.14);position:relative;animation:credentialPulse 3.4s ease-in-out infinite}
+.seal-core:before,.seal-core:after{content:"";position:absolute;border-radius:50%;border:1px dashed rgba(126,190,255,.25)}
+.seal-core:before{inset:-10px;animation:credentialSpin 12s linear infinite}
+.seal-core:after{inset:10px;border-color:rgba(70,229,255,.22)}
+.seal-core span{font-size:.57rem;color:#8ea8bb;letter-spacing:.12em;text-transform:uppercase}
+.seal-core b{display:block;font-size:1rem;color:#f0fbff;margin-top:3px}
+@keyframes credentialSpin{to{transform:rotate(360deg)}}
+@keyframes credentialPulse{50%{transform:translateY(-4px);box-shadow:0 0 0 11px rgba(70,229,255,.025),0 0 58px rgba(70,229,255,.18)}}
+@media(max-width:900px){.credential-card{grid-template-columns:1fr}.credential-seal{min-height:165px}}
+@media(prefers-reduced-motion:reduce){.seal-core,.seal-core:before{animation:none!important}}
+
+
+
+
+/* ===== CLEAN CERTIFICATE SHOWCASE ===== */
+.certificate-only{padding:58px 0 92px}
+.certificate-frame{
+  max-width:980px;margin:auto;padding:14px;border:1px solid rgba(70,229,255,.18);
+  border-radius:28px;background:rgba(6,15,27,.68);
+  box-shadow:0 26px 85px rgba(0,0,0,.36);
+}
+.certificate-preview{padding:12px;border-radius:20px;border:1px solid rgba(126,190,255,.13)}
+.certificate-inner{
+  position:relative;min-height:500px;border-radius:15px;overflow:hidden;
+  display:grid;place-items:center;
+  background:
+    radial-gradient(circle at 50% 20%,rgba(70,229,255,.14),transparent 32%),
+    linear-gradient(135deg,#0b1b2d,#08121f 55%,#0b1828);
+  border:1px solid rgba(126,190,255,.20);
+  box-shadow:inset 0 0 70px rgba(0,0,0,.28);
+}
+.certificate-inner:before,.certificate-inner:after{
+  content:"";position:absolute;inset:18px;border:1px solid rgba(70,229,255,.18);
+  border-radius:11px;pointer-events:none;
+}
+.certificate-inner:after{inset:28px;border-color:rgba(155,108,255,.12)}
+.certificate-watermark{
+  position:absolute;inset:0;display:grid;place-items:center;
+  font-size:clamp(3rem,9vw,7rem);font-weight:1000;letter-spacing:.08em;
+  color:rgba(255,255,255,.018);transform:rotate(-18deg);pointer-events:none;
+}
+.certificate-content{position:relative;z-index:1;text-align:center;padding:45px 24px}
+.certificate-emblem{
+  width:66px;height:66px;margin:0 auto 20px;border-radius:50%;
+  display:grid;place-items:center;color:var(--cyan);font-size:1.4rem;
+  border:1px solid rgba(70,229,255,.48);
+  box-shadow:0 0 0 8px rgba(70,229,255,.035),0 0 38px rgba(70,229,255,.14);
+  animation:certificateGlow 3s ease-in-out infinite;
+}
+.certificate-small{color:#8ea9bc;font-size:.68rem;font-weight:900;letter-spacing:.22em}
+.certificate-title{
+  margin:15px 0 18px;font-size:clamp(2rem,5vw,4rem);
+  line-height:1;letter-spacing:-.045em;
+  background:linear-gradient(100deg,#fff,#bcefff 48%,#a98cff);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.certificate-line{
+  width:110px;height:1px;margin:0 auto 24px;
+  background:linear-gradient(90deg,transparent,var(--cyan),transparent);
+}
+.certificate-seal-text{
+  color:#a9c2d2;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
+}
+.certificate-actions{display:flex;justify-content:center;padding:18px 0 2px}
+.certificate-actions .btn{cursor:pointer;min-width:190px}
+@keyframes certificateGlow{
+  50%{transform:translateY(-3px);box-shadow:0 0 0 11px rgba(70,229,255,.02),0 0 55px rgba(70,229,255,.2)}
+}
+@media(max-width:620px){
+  .certificate-only{padding:45px 0 70px}
+  .certificate-frame{padding:10px;border-radius:22px}
+  .certificate-inner{min-height:390px}
+  .certificate-content{padding:32px 14px}
+}
+@media(prefers-reduced-motion:reduce){
+  .certificate-emblem{animation:none!important}
+}
+</style>
+
+
+</head>
+<body>
+<div class="grid-bg"></div><div class="noise"></div><div class="cursor" id="cursor"></div>
+<header><div class="wrap"><nav class="nav"><a class="brand" href="#top"><span class="brand-mark">AN</span><span>ABU-NAZAF DIGITAL STUDIO</span></a><div class="navlinks"><a href="#services">Services</a><a href="#credential">Credential</a><a href="#work">Solutions</a><a href="#process">Process</a><a href="#contact" class="cta">Start a Project ↗</a></div></nav></div></header>
+<main id="top">
+<section class="hero"><div class="wrap hero-grid"><div class="reveal"><span class="eyebrow"><i class="dot"></i> Web + App Design & Development</span><h1>We design <span class="grad">digital products</span> people remember.</h1><p>From high-converting business websites to polished web applications and mobile app experiences, we combine premium UI/UX, modern development and analytics-ready thinking to create digital products that look exceptional and work for the business.</p><div class="actions"><a class="btn primary" href="#contact">Build My Digital Product →</a><a class="btn ghost" href="#services">Explore Services ↓</a></div></div>
+<div class="device-stage reveal"><div class="orb"></div><div class="floating-tag">⚡ Fast • Responsive • Conversion-focused</div><div class="laptop"><div class="screen"><div class="screen-top"><span>ABU-NAZAF / DIGITAL EXPERIENCE</span><span class="window-dots"><i></i><i></i><i></i></span></div><div class="dashboard"><div class="chart"></div><div class="stats"><div class="stat"><b>+42%</b><span>ENGAGEMENT</span></div><div class="stat"><b>2.4×</b><span>FASTER FLOW</span></div><div class="stat"><b>98</b><span>PERFORMANCE</span></div></div></div></div><div class="base"></div></div><div class="phone"><div class="phone-notch"></div><div class="phone-ui"><div class="phone-card"></div><div class="phone-card"></div><div class="phone-card"></div><div class="phone-card"></div></div></div></div></div></section>
+
+<section class="certificate-only" id="certificate">
+  <div class="wrap">
+    <div class="certificate-frame reveal">
+      <div class="certificate-preview" aria-label="Certificate preview">
+        <div class="certificate-inner">
+          <div class="certificate-watermark">CERTIFICATE</div>
+          <div class="certificate-content">
+            <div class="certificate-emblem">✦</div>
+            <div class="certificate-small">CERTIFICATE OF ACHIEVEMENT</div>
+            <div class="certificate-title">Professional Credential</div>
+            <div class="certificate-line"></div>
+            <div class="certificate-seal-text">Verified Professional Certificate</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-actions">
+        <a class="btn primary" href="2d85052b96ff33f95e.pdf" target="_blank" rel="noopener">View Certificate</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services"><div class="wrap"><div class="section-head reveal"><div class="kicker">What we build</div><h2>One studio. From first screen to finished product.</h2><p>Design and development services for businesses that want a stronger digital presence, a better customer experience and a product built to grow.</p></div><div class="cards">
+<article class="card reveal"><div class="icon">◈</div><h3>Business Websites</h3><p>Premium corporate, service, consulting, SaaS and landing websites with a clear conversion journey.</p><ul><li>Responsive UI/UX</li><li>Modern animations & interactions</li><li>SEO-ready structure</li></ul></article>
+<article class="card reveal"><div class="icon">⌘</div><h3>Web Applications</h3><p>Interactive dashboards, client portals, internal tools and browser-based products designed around real workflows.</p><ul><li>Functional front-end experiences</li><li>Data/API-ready architecture</li><li>Scalable component systems</li></ul></article>
+<article class="card reveal"><div class="icon">▣</div><h3>Mobile App UI/UX</h3><p>Clean mobile experiences that turn complex features into simple, intuitive journeys across modern screen sizes.</p><ul><li>User flows & wireframes</li><li>High-fidelity interfaces</li><li>Prototype-ready screens</li></ul></article>
+<article class="card reveal"><div class="icon">✦</div><h3>UI/UX & Brand Experience</h3><p>Visual systems that make a business feel credible, distinctive and consistent across every digital touchpoint.</p><ul><li>Design systems & components</li><li>Micro-interactions</li><li>Accessibility-minded layouts</li></ul></article>
+<article class="card reveal"><div class="icon">↗</div><h3>Performance & Optimization</h3><p>Speed, responsiveness, structure and user journeys refined so the finished experience stays beautiful without becoming heavy.</p><ul><li>Responsive optimization</li><li>Performance-focused structure</li><li>Analytics-ready events</li></ul></article>
+<article class="card reveal"><div class="icon">∞</div><h3>Analytics-Ready Products</h3><p>Because we also work in analytics, digital products can be structured to capture meaningful business and customer signals.</p><ul><li>Conversion measurement</li><li>KPI-friendly architecture</li><li>Data-informed iteration</li></ul></article>
+</div></div></section>
+
+<section id="work"><div class="wrap"><div class="section-head reveal"><div class="kicker">Digital solutions</div><h2>Built for the way your customers actually interact.</h2><p>Whether you need a new website, a web application or a mobile product interface, we focus on clarity, trust, usability and measurable outcomes.</p></div><div class="work">
+<article class="project reveal"><div class="glow"></div><span>01 / Business Presence</span><h3>A website that feels like your best salesperson.</h3><p>Clear positioning, persuasive content hierarchy, premium visuals and frictionless contact journeys designed to turn attention into enquiries.</p><div class="chips"><i class="chip">Corporate</i><i class="chip">Consulting</i><i class="chip">SaaS</i><i class="chip">Services</i></div></article>
+<article class="project reveal"><div class="glow"></div><span>02 / Product Experience</span><h3>An interface that makes complex products feel simple.</h3><p>Structured user flows, responsive components, interactive states and purposeful motion for web apps, dashboards and mobile experiences.</p><div class="chips"><i class="chip">Web Apps</i><i class="chip">Dashboards</i><i class="chip">Mobile UI</i><i class="chip">UX Systems</i></div></article>
+</div></div></section>
+
+<section id="process"><div class="wrap"><div class="section-head reveal"><div class="kicker">Our process</div><h2>Strategy first. Pixels second. Results throughout.</h2><p>A structured workflow keeps design attractive, development practical and the final product aligned with your business objective.</p></div><div class="process">
+<div class="step reveal"><div class="num">01 / DISCOVER</div><h3>Understand</h3><p>Business goals, audience, competitors, content, features and success metrics.</p></div>
+<div class="step reveal"><div class="num">02 / DESIGN</div><h3>Shape</h3><p>Information architecture, user flows, visual direction, responsive UI and interaction details.</p></div>
+<div class="step reveal"><div class="num">03 / DEVELOP</div><h3>Build</h3><p>Clean front-end implementation, responsive behavior, interactions and product functionality.</p></div>
+<div class="step reveal"><div class="num">04 / OPTIMIZE</div><h3>Launch & Improve</h3><p>Quality checks, performance refinement, analytics readiness and iteration after launch.</p></div>
+</div></div></section>
+
+<section id="contact"><div class="wrap contact"><div class="contact-box reveal"><div class="kicker">Start a digital project</div><h2>Have an idea? Let's turn it into a product.</h2><p>Tell us what you want to build — website, web application, dashboard, mobile app interface or a complete digital experience.</p><div class="actions"><a class="btn primary" href="mailto:contact@abu-nazaf-analytics.example?subject=Web%20%26%20App%20Project%20Enquiry">Discuss My Project →</a><a class="btn ghost" href="#services">View Services</a></div></div><div class="contact-box reveal"><div class="kicker">Why this studio</div><div class="contact-list"><div>✦ Business-first design, not decoration</div><div>⚡ Responsive experiences across screen sizes</div><div>⌘ Web + app UI/UX + development under one roof</div><div>◎ Analytics-aware digital products</div><div>✓ Clear handover and scalable structure</div></div></div></div></section>
+</main>
+<footer><div class="wrap">© 2026 Abu-Nazaf Digital Studio · Web Design · App Design · Development · UI/UX · Analytics-ready Digital Solutions</div></footer>
+<script>
+const cursor=document.getElementById('cursor');
+window.addEventListener('pointermove',e=>{cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px';});
+const io=new IntersectionObserver(entries=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('show'),Math.min(i*55,220));io.unobserve(entry.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.querySelectorAll('.card').forEach(card=>{card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect();card.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');card.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');});});
+
+</script>
+
+<div class="certificate-modal" id="certificateModal" aria-hidden="true">
+  <div class="certificate-modal-backdrop" data-close-certificate></div>
+  <div class="certificate-modal-dialog" role="dialog" aria-modal="true" aria-label="Certificate">
+    <button class="certificate-modal-close" type="button" aria-label="Close certificate" data-close-certificate>×</button>
+    <div class="certificate-modal-content">
+      <div class="certificate-emblem">✦</div>
+      <div class="certificate-small">CERTIFICATE OF ACHIEVEMENT</div>
+      <div class="certificate-modal-title">Professional Credential</div>
+      <div class="certificate-line"></div>
+      <div class="certificate-seal-text">Verified Professional Certificate</div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
