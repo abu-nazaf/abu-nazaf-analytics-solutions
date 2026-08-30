@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abu-nazaf.github.io/abu-nazaf-analytics-solutions/sitemap.xml
